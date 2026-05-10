@@ -37,16 +37,20 @@ const Login = () => {
 
   // ✅ FULL SCREEN LOADER UI
   if (loading) {
-    return (
-      <div className="h-screen w-full bg-black flex items-center justify-center">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-          className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full"
-        />
-      </div>
-    );
-  }
+  return (
+    <div className="h-screen w-full bg-black flex flex-col items-center justify-center gap-4">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+        className="w-16 h-16 border-4 border-green-500 border-t-transparent rounded-full"
+      />
+
+      <p className="text-green-400 text-lg font-medium text-center">
+        You are being redirected to the main dashboard, please wait...
+      </p>
+    </div>
+  );
+}
 
   return (
     <div className="h-screen w-full bg-black text-white flex overflow-hidden">
