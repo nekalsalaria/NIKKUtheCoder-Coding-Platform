@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
 
   progress: {
     type: Object,
-    default: {}, // { "array-1": true, "string-2": true }
+    default: {},
   },
 
   notes: {
@@ -18,7 +18,18 @@ const userSchema = new mongoose.Schema({
   streak: {
     type: Number,
     default: 0,
-  }
+  },
+
+  lastActiveDate: {
+    type: Date,
+    default: null,
+  },
+
+  longestStreak: {
+    type: Number,
+    default: 0,
+  },
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("User", userSchema);

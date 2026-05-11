@@ -136,4 +136,44 @@ router.get("/revision/:userId", async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
+// POST /api/user/update-streak
+router.post("/update-streak", async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // normalize to midnight
+
+    const last = user.lastActiveDate ? new Date(user.lastActiveDate) : null;
+    if (last) last.setHours(0, 0, 0, 0);
+
+    const yesterday = new Date(today);
+    yesterday.setDate(today.getDate() - 1);
+
+    if (last && last.getTime() === today.getTime()) {
+      // Already counted today — do nothing
+      return res.json({ streak: user.streak, message: "already counted" });
+    } else if (last && last.getTime() === yesterday.getTime()) {
+      // Consecutive day — increment
+      user.streak += 1;
+    } else {
+      // Missed a day or new user — reset
+      user.streak = 1;
+    }
+
+    user.lastActiveDate = today;
+    if (user.streak > user.longestStreak) {
+      user.longestStreak = user.streak;
+    }
+
+    await user.save();
+    res.json({ streak: user.streak, longestStreak: user.longestStreak });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 module.exports = router;
