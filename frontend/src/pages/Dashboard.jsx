@@ -51,7 +51,6 @@ const Dashboard = () => {
 
     fetchUsers();
     // updateStreak();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
