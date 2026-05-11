@@ -25,7 +25,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const [totalUsers, setTotalUsers] = useState(0);
-  const [streak, setStreak] = useState(0); // ← NEW
+  // const [streak, setStreak] = useState(0); // ← NEW
 
   // ✅ SINGLE useEffect — dono calls yahan
   useEffect(() => {
@@ -38,20 +38,20 @@ const Dashboard = () => {
       }
     };
 
-    const updateStreak = async () => {
-      try {
-        const res = await API.post("/api/user/update-streak", {
-          email: user?.email,
-        });
-        setStreak(res.data.streak);
-      } catch (err) {
-        console.error(err);
-      }
-    };
+    // const updateStreak = async () => {
+    //   try {
+    //     const res = await API.post("/api/user/update-streak", {
+    //       email: user?.email,
+    //     });
+    //     setStreak(res.data.streak);
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // };
 
     fetchUsers();
-    updateStreak();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // updateStreak();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -96,7 +96,9 @@ const Dashboard = () => {
               </p>
               <p className="text-green-400 text-[11px] mt-1 flex items-center gap-1">
                 <span>View Profile</span>
-                <span className="group-hover:translate-x-0.5 transition-transform inline-block">→</span>
+                <span className="group-hover:translate-x-0.5 transition-transform inline-block">
+                  →
+                </span>
               </p>
             </div>
 
@@ -107,19 +109,27 @@ const Dashboard = () => {
               stroke="currentColor"
               strokeWidth={1.5}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
             </svg>
           </div>
 
           {/* Brand */}
           <p className="text-green-400 text-[13px] font-semibold mb-5 whitespace-nowrap">
             NIKKUtheCoder{" "}
-            <span className="text-white text-left font-medium">Coding Platform</span>
+            <span className="text-white text-left font-medium">
+              Coding Platform
+            </span>
           </p>
 
           {/* Useful Links */}
           <div className="mb-3">
-            <p className="text-[10px] uppercase tracking-[0.3em] text-green-400 font-bold">Useful Links</p>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-green-400 font-bold">
+              Useful Links
+            </p>
             <div className="w-8 h-0.5 bg-green-400 mt-1 rounded-full"></div>
           </div>
 
@@ -128,12 +138,16 @@ const Dashboard = () => {
             className="w-full cursor-pointer flex items-center justify-between bg-linear-to-r from-green-500/10 via-green-400/5 to-transparent border border-green-500/30 rounded-lg px-3 py-2 text-xs text-green-300 hover:text-white hover:border-green-400 hover:shadow-[0_0_12px_rgba(34,197,94,0.35)] transition-all duration-300 group"
           >
             <div className="flex items-center gap-2 cursor-pointer">
-              <span className="text-green-400 group-hover:scale-110 transition">🧠</span>
+              <span className="text-green-400 group-hover:scale-110 transition">
+                🧠
+              </span>
               <span className="font-medium text-left text-[11px] leading-tight group-hover:text-green-400 transition">
                 How to Approach Any DSA Question
               </span>
             </div>
-            <span className="text-[10px] text-green-400 group-hover:translate-x-1 transition">→</span>
+            <span className="text-[10px] text-green-400 group-hover:translate-x-1 transition">
+              →
+            </span>
           </button>
 
           <button
@@ -141,10 +155,14 @@ const Dashboard = () => {
             className="w-full mb-2 flex cursor-pointer items-center justify-between bg-linear-to-r from-orange-500/10 via-orange-400/5 to-transparent border border-orange-500/30 rounded-lg px-3 py-2 text-xs text-orange-300 hover:text-white hover:border-orange-400 hover:shadow-[0_0_12px_rgba(234,179,8,0.35)] transition-all duration-300 group mt-2"
           >
             <div className="flex items-center gap-2">
-              <span className="text-orange-400 group-hover:scale-110 transition">📝</span>
+              <span className="text-orange-400 group-hover:scale-110 transition">
+                📝
+              </span>
               <span className="font-medium">Create Resume</span>
             </div>
-            <span className="text-[10px] text-orange-400 group-hover:translate-x-1 transition">→</span>
+            <span className="text-[10px] text-orange-400 group-hover:translate-x-1 transition">
+              →
+            </span>
           </button>
 
           <button
@@ -152,10 +170,16 @@ const Dashboard = () => {
             className="w-full cursor-pointer mb-2 flex items-center justify-between bg-linear-to-r from-purple-500/10 via-purple-400/5 to-transparent border border-purple-500/30 rounded-lg px-3 py-2 text-xs text-purple-300 hover:text-white hover:border-purple-400 hover:shadow-[0_0_12px_rgba(147,51,234,0.35)] transition-all duration-300 group"
           >
             <div className="flex items-center gap-2 cursor-pointer">
-              <span className="text-purple-400 group-hover:scale-110 transition">💻</span>
-              <span className="font-medium cursor-pointer group-hover:text-purple-400 transition">Open Compiler</span>
+              <span className="text-purple-400 group-hover:scale-110 transition">
+                💻
+              </span>
+              <span className="font-medium cursor-pointer group-hover:text-purple-400 transition">
+                Open Compiler
+              </span>
             </div>
-            <span className="text-[10px] text-purple-400 group-hover:translate-x-1 transition">→</span>
+            <span className="text-[10px] text-purple-400 group-hover:translate-x-1 transition">
+              →
+            </span>
           </button>
 
           <button
@@ -163,21 +187,31 @@ const Dashboard = () => {
             className="w-full flex cursor-pointer items-center justify-between mb-2 bg-linear-to-r from-blue-500/10 via-blue-400/5 to-transparent border border-blue-500/30 rounded-lg px-3 py-2 text-xs text-blue-300 hover:text-white hover:border-blue-400 hover:shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-all duration-300 group mt-2"
           >
             <div className="flex items-center gap-2">
-              <span className="text-blue-400 group-hover:scale-110 transition">📚</span>
+              <span className="text-blue-400 group-hover:scale-110 transition">
+                📚
+              </span>
               <span className="font-medium">CS Subjects Links</span>
             </div>
-            <span className="text-[10px] text-blue-400 group-hover:translate-x-1 transition">→</span>
+            <span className="text-[10px] text-blue-400 group-hover:translate-x-1 transition">
+              →
+            </span>
           </button>
 
           <button
-            onClick={() => window.open("https://swapskill-com-1.onrender.com/", "_blank")}
+            onClick={() =>
+              window.open("https://swapskill-com-1.onrender.com/", "_blank")
+            }
             className="w-full flex cursor-pointer items-center justify-between bg-linear-to-r from-blue-500/10 via-blue-400/5 to-transparent border border-blue-500/30 rounded-lg px-3 py-2 text-xs text-blue-300 hover:text-white hover:border-blue-400 hover:shadow-[0_0_12px_rgba(59,130,246,0.35)] transition-all duration-300 group mt-2"
           >
             <div className="flex items-center gap-2">
-              <span className="text-blue-400 group-hover:scale-110 transition">🔗</span>
+              <span className="text-blue-400 group-hover:scale-110 transition">
+                🔗
+              </span>
               <span className="font-medium">SwapSkill Other Product</span>
             </div>
-            <span className="text-[10px] text-blue-400 group-hover:translate-x-1 transition">→</span>
+            <span className="text-[10px] text-blue-400 group-hover:translate-x-1 transition">
+              →
+            </span>
           </button>
 
           <div className="h-px bg-gray-800 mb-4 mt-2"></div>
@@ -187,7 +221,9 @@ const Dashboard = () => {
         <div className="flex items-center justify-between gap-3 bg-linear-to-r from-[#0b0f19] via-[#0f172a] to-[#020617] border border-gray-800 rounded-xl px-4 py-2.5 shadow-md hover:shadow-green-500/20 hover:border-green-500/40 transition-all duration-300 group">
           <div className="flex items-center gap-2">
             <span className="text-base">👥</span>
-            <p className="text-[10px] uppercase tracking-[0.12em] text-gray-500 whitespace-nowrap">Total Learners</p>
+            <p className="text-[10px] uppercase tracking-[0.12em] text-gray-500 whitespace-nowrap">
+              Total Learners
+            </p>
           </div>
           <h2 className="text-xl font-bold text-green-400 relative">
             {totalUsers}+
@@ -209,8 +245,14 @@ const Dashboard = () => {
               <div className="bg-[#0b0f19] border border-gray-800 rounded-xl shadow-xl flex flex-col sm:flex-row overflow-hidden w-[90%] sm:w-auto">
                 <div className="p-6 text-center border-r border-gray-800">
                   <h3 className="text-white mb-4">Support (Min ₹50)</h3>
-                  <img src="/paytm-qr.png" alt="QR" className="w-48 mx-auto mb-4 rounded" />
-                  <p className="text-xs text-gray-400">Scan & support the project</p>
+                  <img
+                    src="/paytm-qr.png"
+                    alt="QR"
+                    className="w-48 mx-auto mb-4 rounded"
+                  />
+                  <p className="text-xs text-gray-400">
+                    Scan & support the project
+                  </p>
                   <button
                     onClick={() => setOpenQR(false)}
                     className="mt-4 text-gray-400 hover:text-white transition cursor-pointer text-sm"
@@ -221,20 +263,28 @@ const Dashboard = () => {
                 <div className="p-6 w-full sm:w-64 bg-[#111827]">
                   <p className="text-xs text-gray-500 mb-4">Top Donator</p>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-black font-bold">N</div>
+                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-black font-bold">
+                      N
+                    </div>
                     <div>
-                      <p className="text-sm text-white font-medium">Nekal Singh</p>
+                      <p className="text-sm text-white font-medium">
+                        Nekal Singh
+                      </p>
                       <p className="text-xs text-gray-400">₹50 donated</p>
                     </div>
                   </div>
-                  <div className="text-xs text-green-400 font-medium">#1 Supporter 🏆</div>
+                  <div className="text-xs text-green-400 font-medium">
+                    #1 Supporter 🏆
+                  </div>
                 </div>
               </div>
             </div>
           )}
 
           <div
-            onClick={() => (window.location.href = "https://www.linkedin.com/in/nekalsingh/")}
+            onClick={() =>
+              (window.location.href = "https://www.linkedin.com/in/nekalsingh/")
+            }
             className="flex items-center justify-center gap-2 text-xs text-gray-400 hover:text-green-400 transition bg-[#111827] border border-gray-800 rounded-lg py-2 hover:border-green-500/40 hover:shadow-[0_0_8px_rgba(34,197,94,0.3)] cursor-pointer"
           >
             <span>🔗</span>
@@ -245,7 +295,6 @@ const Dashboard = () => {
 
       {/* MAIN CONTENT */}
       <div className="flex-1 lg:ml-64 p-4 sm:p-6 lg:p-8 overflow-y-auto lg:h-screen">
-
         {/* Heading */}
         <div className="mb-4">
           <h2 className="text-2xl font-bold text-white mb-1.5">
@@ -256,27 +305,6 @@ const Dashboard = () => {
             <span className="text-green-400">Interview-ready</span> bano.
           </p>
         </div>
-
-        {/* ✅ STREAK BADGE — yahan add kiya */}
-        <div className="flex items-center gap-3 mb-6">
-  <div className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 rounded-xl px-4 py-2">
-    <span className="text-xl">🔥</span>
-    <div>
-      <p className="text-orange-400 text-lg font-bold leading-none">
-        {streak} day{streak !== 1 ? "s" : ""}
-      </p>
-      <p className="text-gray-500 text-[11px] mt-0.5">current streak</p>
-    </div>
-  </div>
-
-  {/* Hamesha dikhega — streak ke hisaab se message */}
-  <p className="text-gray-500 text-xs">
-    {streak === 0 && "Aaj koi question solve karo — streak shuru hogi! 🚀"}
-    {streak >= 1 && streak < 7 && "Achi shuruat hai, keep going! 💪"}
-    {streak >= 7 && streak < 30 && "Ek hafte se chal raha hai — zabardast! 🔥"}
-    {streak >= 30 && "Legend ban gaya bhai! 🏆"}
-  </p>
-</div>
 
         {/* Topics */}
         <TopicSection topic={IFELSE} />
