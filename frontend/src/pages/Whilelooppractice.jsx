@@ -18,17 +18,9 @@ const questions = [
   { id: 11, difficulty: "Easy", question: "Find smallest digit in a number" },
   { id: 12, difficulty: "Easy", question: "Check if sum of digits is even or odd" },
   { id: 13, difficulty: "Easy", question: "Print digits in reverse order" },
-  { id: 14, difficulty: "Easy", question: "Remove last digit repeatedly and print number" },
   { id: 15, difficulty: "Easy", question: "Count how many digits are greater than 5" },
 
-  // ---------- MEDIUM (16–35) ----------
-  { id: 16, difficulty: "Medium", question: "Check Armstrong number using while loop" },
-  { id: 17, difficulty: "Medium", question: "Check if number is strong number (sum of factorial of digits)" },
-  { id: 18, difficulty: "Medium", question: "Find sum of squares of digits" },
-  { id: 19, difficulty: "Medium", question: "Find sum of cubes of digits" },
-  { id: 20, difficulty: "Medium", question: "Check if number is Harshad (divisible by sum of digits)" },
 
-  { id: 21, difficulty: "Medium", question: "Check if number is automorphic (square ends with same digits)" },
   { id: 22, difficulty: "Medium", question: "Find difference between sum of even and odd digits" },
   { id: 23, difficulty: "Medium", question: "Replace all 0 digits with 1 in a number" },
   { id: 24, difficulty: "Medium", question: "Check if number contains digit 7" },
@@ -38,32 +30,6 @@ const questions = [
   { id: 27, difficulty: "Medium", question: "Find second largest digit in a number" },
   { id: 28, difficulty: "Medium", question: "Check if digits are in increasing order" },
   { id: 29, difficulty: "Medium", question: "Check if digits are in decreasing order" },
-  { id: 30, difficulty: "Medium", question: "Sum only prime digits in a number" },
-
-  { id: 31, difficulty: "Medium", question: "Count digits divisible by 3" },
-  { id: 32, difficulty: "Medium", question: "Check if reversed number equals original" },
-  { id: 33, difficulty: "Medium", question: "Find number formed by reversing digits" },
-  { id: 34, difficulty: "Medium", question: "Multiply all digits except zero" },
-  { id: 35, difficulty: "Medium", question: "Count digits less than 5" },
-
-  // ---------- HARD (36–50) ----------
-  { id: 36, difficulty: "Hard", question: "Check if number is palindrome without using extra variable" },
-  { id: 37, difficulty: "Hard", question: "Find sum of factorial of digits" },
-  { id: 38, difficulty: "Hard", question: "Find number of trailing zeros in a number" },
-  { id: 39, difficulty: "Hard", question: "Check if number is spy number (sum == product of digits)" },
-  { id: 40, difficulty: "Hard", question: "Convert number to binary using while loop" },
-
-  { id: 41, difficulty: "Hard", question: "Convert binary to decimal using while loop" },
-  { id: 42, difficulty: "Hard", question: "Find frequency of each digit in number" },
-  { id: 43, difficulty: "Hard", question: "Check if number is neon number (sum of digits of square = number)" },
-  { id: 44, difficulty: "Hard", question: "Remove all occurrences of a digit from number" },
-  { id: 45, difficulty: "Hard", question: "Check if number is duck number (contains 0 but not at start)" },
-
-  { id: 46, difficulty: "Hard", question: "Find sum of alternate digits" },
-  { id: 47, difficulty: "Hard", question: "Check if number is circular prime (basic logic)" },
-  { id: 48, difficulty: "Hard", question: "Create number by swapping first and last digit" },
-  { id: 49, difficulty: "Hard", question: "Check if number is palindrome after removing last digit" },
-  { id: 50, difficulty: "Hard", question: "Find digital root using loop (keep summing digits until single digit)" },
 
 ];
 

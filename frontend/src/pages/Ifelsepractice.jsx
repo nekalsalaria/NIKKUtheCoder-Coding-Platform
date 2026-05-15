@@ -1,56 +1,259 @@
 import { useState, useRef } from "react";
 
 const questions = [
-  // ---------- EASY (1–20) ----------
-  { id: 1, difficulty: "Easy", question: "Check if a number is even or odd" },
-  { id: 2, difficulty: "Easy", question: "Check if a number is positive, negative or zero" },
-  { id: 3, difficulty: "Easy", question: "Check if a number is divisible by 5" },
-  { id: 4, difficulty: "Easy", question: "Check if a number is greater than 100" },
-  { id: 5, difficulty: "Easy", question: "Check if two numbers are equal" },
-  { id: 6, difficulty: "Easy", question: "Check if a person is eligible to vote (age ≥ 18)" },
-  { id: 7, difficulty: "Easy", question: "Check if a student passed or failed (marks ≥ 33)" },
-  { id: 8, difficulty: "Easy", question: "Check if a number is single-digit or multi-digit" },
-  { id: 9, difficulty: "Easy", question: "Check if a number is divisible by 7" },
-  { id: 10, difficulty: "Easy", question: "Check if temperature is hot or cold" },
-  { id: 11, difficulty: "Easy", question: "Find maximum of two numbers" },
-  { id: 12, difficulty: "Easy", question: "Find minimum of two numbers" },
-  { id: 13, difficulty: "Easy", question: "Check if character is uppercase or lowercase" },
-  { id: 14, difficulty: "Easy", question: "Check if number is odd and greater than 50" },
-  { id: 15, difficulty: "Easy", question: "Check if a number lies between 10 and 50" },
-  { id: 16, difficulty: "Easy", question: "Check if a number is divisible by both 3 and 5" },
-  { id: 17, difficulty: "Easy", question: "Check if a number is multiple of 10" },
-  { id: 18, difficulty: "Easy", question: "Check if character is a vowel" },
-  { id: 19, difficulty: "Easy", question: "Check if a number is less than 0" },
-  { id: 20, difficulty: "Easy", question: "Check if age is child (<13), teen, or adult" },
+  // ---------- EASY ----------
+  {
+    id: 1,
+    difficulty: "Easy",
+    question: "Take a number from the user and print whether the number is Even or Odd."
+  },
+  {
+    id: 2,
+    difficulty: "Easy",
+    question: "Input a number and check whether it is Positive, Negative, or Zero."
+  },
+  {
+    id: 3,
+    difficulty: "Easy",
+    question: "Take age as input and print Eligible if the person is 18 years or older, otherwise print Not Eligible."
+  },
+  {
+    id: 4,
+    difficulty: "Easy",
+    question: "Input two numbers and print the greater number between them."
+  },
+  {
+    id: 5,
+    difficulty: "Easy",
+    question: "Check whether a number is divisible by both 3 and 5."
+  },
+  {
+    id: 6,
+    difficulty: "Easy",
+    question: "Take a character as input and check whether it is a vowel (a, e, i, o, u)."
+  },
+  {
+    id: 7,
+    difficulty: "Easy",
+    question: "Input student marks and print Pass if marks are 33 or more, otherwise print Fail."
+  },
+  {
+    id: 8,
+    difficulty: "Easy",
+    question: "Take age as input and classify the person as Child (below 13), Teenager (13–19), or Adult (20 and above)."
+  },
+  {
+    id: 9,
+    difficulty: "Easy",
+    question: "Check whether a number is divisible by 2, 3, or both."
+  },
+  {
+    id: 10,
+    difficulty: "Easy",
+    question: "Take temperature as input and print Hot if temperature is above 30, otherwise print Cold."
+  },
+  {
+    id: 11,
+    difficulty: "Easy",
+    question: "Input two numbers and print the smaller number."
+  },
+  {
+    id: 12,
+    difficulty: "Easy",
+    question: "Check whether a character entered by the user is Uppercase or Lowercase."
+  },
+  {
+    id: 13,
+    difficulty: "Easy",
+    question: "Check whether a number lies between 10 and 50."
+  },
+  {
+    id: 14,
+    difficulty: "Easy",
+    question: "Check whether a number is a multiple of 10."
+  },
+  {
+    id: 15,
+    difficulty: "Easy",
+    question: "Take a number and print Greater than 100 if the number is above 100, otherwise print Less than or Equal to 100."
+  },
+  {
+    id: 16,
+    difficulty: "Easy",
+    question: "Check whether two numbers entered by the user are equal or not."
+  },
+  {
+    id: 17,
+    difficulty: "Easy",
+    question: "Take a character and check whether it is a consonant."
+  },
+  {
+    id: 18,
+    difficulty: "Easy",
+    question: "Input a number and check whether it is divisible by 7."
+  },
+  {
+    id: 19,
+    difficulty: "Easy",
+    question: "Check whether a number is less than zero."
+  },
+  {
+    id: 20,
+    difficulty: "Easy",
+    question: "Take marks as input and print Distinction if marks are greater than 75."
+  },
+  {
+    id: 21,
+    difficulty: "Easy",
+    question: "Input salary and print High Salary if salary is greater than 50000."
+  },
+  {
+    id: 22,
+    difficulty: "Easy",
+    question: "Take a character and check whether it is an alphabet or not."
+  },
+  {
+    id: 23,
+    difficulty: "Easy",
+    question: "Input a number and check whether it is a single-digit or double-digit number."
+  },
+  {
+    id: 24,
+    difficulty: "Easy",
+    question: "Take three numbers and check whether all three numbers are equal."
+  },
+  {
+    id: 25,
+    difficulty: "Easy",
+    question: "Input a number and check whether it is divisible by 10."
+  },
+  {
+    id: 26,
+    difficulty: "Easy",
+    question: "Take a person's age and check whether the person is a Senior Citizen (60 years or above)."
+  },
+  {
+    id: 27,
+    difficulty: "Easy",
+    question: "Input a character and print Vowel if it is a vowel, otherwise print Consonant."
+  },
+  {
+    id: 28,
+    difficulty: "Easy",
+    question: "Take two numbers and check whether both numbers are positive."
+  },
+  {
+    id: 29,
+    difficulty: "Easy",
+    question: "Input a number and check whether it is divisible by 4."
+  },
+  {
+    id: 30,
+    difficulty: "Easy",
+    question: "Take a number and print whether it is Greater than 50, Less than 50, or Equal to 50."
+  },
 
-  // ---------- MEDIUM (21–40) ----------
-  { id: 21, difficulty: "Medium", question: "Find maximum of three numbers" },
-  { id: 22, difficulty: "Medium", question: "Check if a year is leap year" },
-  { id: 23, difficulty: "Medium", question: "Check if character is vowel or consonant" },
-  { id: 24, difficulty: "Medium", question: "Create grade system using marks (A/B/C/D/Fail)" },
-  { id: 25, difficulty: "Medium", question: "Print day of week using number (1–7)" },
-  { id: 27, difficulty: "Medium", question: "Find type of triangle (equilateral, isosceles, scalene)" },
-  { id: 28, difficulty: "Medium", question: "Simple calculator using if-else (+, -, *, /)" },
-  { id: 30, difficulty: "Medium", question: "Check eligibility for driving license" },
-  { id: 33, difficulty: "Medium", question: "Find largest among 4 numbers" },
-  { id: 34, difficulty: "Medium", question: "Check if character is digit, letter or special character" },
-  { id: 35, difficulty: "Medium", question: "Calculate electricity bill based on units" },
-  { id: 36, difficulty: "Medium", question: "Check if student gets distinction (marks > 75)" },
-  { id: 37, difficulty: "Medium", question: "Check login credentials (username & password)" },
-  { id: 38, difficulty: "Medium", question: "Apply discount based on shopping amount" },
-  { id: 40, difficulty: "Medium", question: "Display greeting based on time (morning/evening/night)" },
-
-  // ---------- HARD (41–50) ----------
-  { id: 41, difficulty: "Hard", question: "Create a menu-driven program using if-else: take a choice (1–4) from user to perform addition, subtraction, multiplication, or division on two numbers. Handle invalid choice." },
-  { id: 42, difficulty: "Hard", question: "Check ATM withdrawal: input balance and amount. If amount > balance → print 'Insufficient Balance'. If amount not multiple of 100 → 'Invalid Amount'. Else deduct and print remaining balance." },
-  { id: 43, difficulty: "Hard", question: "Calculate bank interest: input account type (Savings/Current) and balance. Savings → 4% interest, Current → 2%. Print interest amount." },
-  { id: 44, difficulty: "Hard", question: "Calculate salary bonus: input salary and years of experience. <2 → no bonus, 2–5 → 10%, >5 → 20%. Print final salary after bonus." },
-  { id: 45, difficulty: "Hard", question: "Find roots type of quadratic equation: input a, b, c. Calculate D = b*b - 4*a*c. If D>0 → two real roots, D==0 → one root, D<0 → imaginary." },
-  { id: 46, difficulty: "Hard", question: "Check if a number is prime: input n and check if it is divisible by any number from 2 to n-1. If yes → not prime, else prime." },
-  { id: 47, difficulty: "Hard", question: "Find second largest among three numbers using only if-else (no sorting or arrays)." },
-  { id: 48, difficulty: "Hard", question: "Check if triangle is right-angled: input three sides and verify if any combination satisfies a² + b² = c²." },
-  { id: 49, difficulty: "Hard", question: "Suggest internet plan based on data usage: <1GB → Basic, 1–5GB → Standard, >5GB → Premium." },
-  { id: 50, difficulty: "Hard", question: "Check promotion eligibility: input rating (1–5) and experience. If rating ≥ 4 AND experience ≥ 3 → eligible, else not eligible." },
+  // ---------- MEDIUM ----------
+  {
+    id: 31,
+    difficulty: "Medium",
+    question: "Input three numbers and print the largest number among all three using if-else conditions."
+  },
+  {
+    id: 32,
+    difficulty: "Medium",
+    question: "Take a year as input and print Leap Year if the year is divisible by 400 or divisible by 4 but not by 100, otherwise print Not a Leap Year."
+  },
+  {
+    id: 33,
+    difficulty: "Medium",
+    question: "Create a grade system using marks:\n 90 and above → Grade A\n75 to 89 → Grade B\n50 to 74 → Grade C\n33 to 49 → Grade D\nBelow 33 → Fail"
+  },
+  {
+    id: 34,
+    difficulty: "Medium",
+    question: "Build a simple calculator using if-else.\nTake two numbers and an operator (+, -, *, /) from the user and perform the selected operation."
+  },
+  {
+    id: 35,
+    difficulty: "Medium",
+    question: "Input three sides of a triangle.\nIf all sides are equal print Equilateral.\nIf any two sides are equal print Isosceles.\nOtherwise print Scalene."
+  },
+  {
+    id: 36,
+    difficulty: "Medium",
+    question: "Take a character as input.\nIf it is between A-Z or a-z print Alphabet.\nIf it is between 0-9 print Digit.\nOtherwise print Special Character."
+  },
+  {
+    id: 37,
+    difficulty: "Medium",
+    question: "Take a number from 1 to 7 and print the corresponding day of the week.\nExample: 1 → Monday, 2 → Tuesday."
+  },
+  {
+    id: 38,
+    difficulty: "Medium",
+    question: "Take time in 24-hour format.\n0–11 → Good Morning\n12–16 → Good Afternoon\n17–21 → Good Evening\n22–23 → Good Night"
+  },
+  {
+    id: 39,
+    difficulty: "Medium",
+    question: "Input shopping amount and apply discount according to the following conditions:\nAbove 5000 → 20% Discount\n2000 to 5000 → 10% Discount\nBelow 2000 → No Discount"
+  },
+  {
+    id: 40,
+    difficulty: "Medium",
+    question: "Check whether a student got Distinction, Pass, or Fail using marks:\n75 and above → Distinction\n33 to 74 → Pass\nBelow 33 → Fail"
+  },
+  {
+    id: 41,
+    difficulty: "Medium",
+    question: "Input electricity units consumed and calculate the bill:\n0–100 units → ₹5 per unit\n101–300 units → ₹7 per unit\nAbove 300 units → ₹10 per unit"
+  },
+  {
+    id: 42,
+    difficulty: "Medium",
+    question: "Take username and password as input.\nIf username is 'admin' and password is '1234', print Login Successful, otherwise print Invalid Credentials."
+  },
+  {
+    id: 43,
+    difficulty: "Medium",
+    question: "Input three numbers and print the smallest number among all three using if-else."
+  },
+  {
+    id: 44,
+    difficulty: "Medium",
+    question: "Take a month number from 1 to 12 and print the corresponding month name."
+  },
+  {
+    id: 45,
+    difficulty: "Medium",
+    question: "Input basic salary and calculate bonus:\nSalary above 50000 → 20% Bonus\n20000 to 50000 → 10% Bonus\nBelow 20000 → 5% Bonus"
+  },
+  {
+    id: 46,
+    difficulty: "Medium",
+    question: "Take exam marks as input.\nIf marks are 85 or above print Scholarship Eligible, otherwise print Not Eligible."
+  },
+  {
+    id: 47,
+    difficulty: "Medium",
+    question: "Input age and check ticket price:\nBelow 12 years → Child Ticket\n12 to 59 years → Normal Ticket\n60 and above → Senior Citizen Ticket"
+  },
+  {
+    id: 48,
+    difficulty: "Medium",
+    question: "Take internet data usage in GB:\nBelow 1GB → Basic Plan\n1GB to 5GB → Standard Plan\nAbove 5GB → Premium Plan"
+  },
+  {
+    id: 49,
+    difficulty: "Medium",
+    question: "Input purchase amount.\nAdd 18% GST to the amount.\nIf final amount is above 5000, apply additional 10% discount."
+  },
+  {
+    id: 50,
+    difficulty: "Medium",
+    question: "Take a number and check:\nIf divisible by 2, print Divisible by 2\nIf divisible by 3, print Divisible by 3\nIf divisible by both, print Divisible by Both"
+  }
 ];
 
 // Language options for the compiler
