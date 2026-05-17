@@ -18,7 +18,8 @@ app.use((req, res, next) => {
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://nikkuthecoder-com-2.onrender.com"
+    "https://nikkuthecoder-com-2.onrender.com",
+    "https://nikkuthecoder.com"
   ],
   credentials: true,
 }));
