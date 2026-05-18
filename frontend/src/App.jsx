@@ -27,6 +27,8 @@ import Logicalquestions from "./pages/Logicalquestions";
 import LogicalquestionsPractice from "./pages/Logicalquestionspractice";
 import Compiler from "./pages/Compiler";
 import CreateResume from "./pages/Createresume";
+import OOP from "./pages/oop";
+import Ooppractice from "./pages/Ooppractice";
 
 function App() {
   return (
@@ -268,6 +270,22 @@ function App() {
         element={
           <PrivateRoute>
             <CreateTest/>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/oop"
+        element={
+          <PrivateRoute>
+            <OOP/>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/oop/practice"
+        element={
+          <PrivateRoute>
+            <Ooppractice/>
           </PrivateRoute>
         }
       />

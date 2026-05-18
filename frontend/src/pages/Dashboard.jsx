@@ -19,6 +19,7 @@ import IFELSE from "../topics/ifelse";
 import FOR_LOOP from "../topics/forloop";
 import WHILE_LOOP from "../topics/whileloop";
 import LOGICAL_QUESTIONS from "../topics/logicalquestions";
+import OOP from "../topics/oop";
 
 const Dashboard = () => {
   const [openQR, setOpenQR] = useState(false);
@@ -320,6 +321,7 @@ const Dashboard = () => {
         <TopicSection topic={Math} />
         <TopicSection topic={RECURSION} />
         <TopicSection topic={STACK_QUEUE} />
+        <TopicSection topic={OOP} />
         <TopicSection topic={LINKED_LIST} />
         <TopicSection topic={TREE} />
         <TopicSection topic={GRAPH} />
