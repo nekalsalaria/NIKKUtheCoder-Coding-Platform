@@ -22,15 +22,9 @@ const questions = [
 
 
   { id: 22, difficulty: "Medium", question: "Find difference between sum of even and odd digits" },
-  { id: 23, difficulty: "Medium", question: "Replace all 0 digits with 1 in a number" },
   { id: 24, difficulty: "Medium", question: "Check if number contains digit 7" },
-  { id: 25, difficulty: "Medium", question: "Count how many times a digit appears in a number" },
 
   { id: 26, difficulty: "Medium", question: "Check if all digits are same" },
-  { id: 27, difficulty: "Medium", question: "Find second largest digit in a number" },
-  { id: 28, difficulty: "Medium", question: "Check if digits are in increasing order" },
-  { id: 29, difficulty: "Medium", question: "Check if digits are in decreasing order" },
-
 ];
 
 const LANGUAGES = [

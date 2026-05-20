@@ -124,11 +124,6 @@ const questions = [
       "Check whether a given number is Prime or Not Prime using a loop.",
   },
   {
-    id: 28,
-    difficulty: "Medium",
-    question: "Print all prime numbers from 1 to n using loops.",
-  },
-  {
     id: 30,
     difficulty: "Medium",
     question:
